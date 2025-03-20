@@ -11,7 +11,10 @@ fun main() {
         println("Enter Appointment Text: ");
         val inputs = readln()
 
-        val file = File("appointments.txt");
+        println("Enter Day Number: ")
+        val dayNumber = readln()
+
+        val file = File("${dayNumber.intern()} + .txt");
 
         val date = LocalDateTime.now();
 
@@ -23,6 +26,10 @@ fun main() {
         val hour = readln()
         println("Enter Minute: ")
         val minute = readln()
+
+        if(month == "" || day == "" || hour == "" || minute == "") {
+            return;
+        }
 
         val dateCurrent  = "$inputs was Added on: ${date.toLocalDate()}\n"
         val appointmentTime = "Appointment Starts on $month/$day $hour:$minute\n";
